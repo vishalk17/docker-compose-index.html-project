@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  httpd-01:
+    image: httpd:latest
+    volumes:
+      - /mnt/main/:/usr/local/apache2/htdocs
+    ports:
+      - "80:80"
+    expose:
+      - "80"
+
+  httpd-02:
+    image: httpd:latest
+    volumes:
+      - /mnt/dev/:/usr/local/apache2/htdocs
+    ports:
+      - "90:80"
+    expose:
+      - "80"
+
+  httpd-03:
+    image: httpd:latest
+    volumes:
+      - /mnt/test/:/usr/local/apache2/htdocs
+    ports:
+      - "9090:80"
+    expose:
+      - "80"
