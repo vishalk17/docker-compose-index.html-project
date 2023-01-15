@@ -17,7 +17,7 @@ pipeline {
                     }
                 }
                 sh "docker system prune -a -f"
-                sh "/usr/local/bin/docker-compose up"
+                sh "/usr/local/bin/docker-compose up -d"
             }
         }
     }
