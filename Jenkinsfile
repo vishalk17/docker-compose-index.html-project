@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("deploy index.html") {
             steps {
-                sh "docker-compose down"
+                sh "/usr/local/bin/docker-compose down"
                 script {
                     if (sh(script: "docker ps -a -q", returnStdout: true).trim().length() > 0) {
                         sh "docker stop '\$(docker ps -a -q)'"
@@ -17,7 +17,7 @@ pipeline {
                     }
                 }
                 sh "docker system prune -a -f"
-                sh "docker-compose up"
+                sh "/usr/local/bin/docker-compose up"
             }
         }
     }
