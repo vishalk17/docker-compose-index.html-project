@@ -9,7 +9,7 @@ pipeline{
         stage ("deploy index.html"){
             steps{
                 sh "docker-compose down"
-                sh "docker stop \$(docker ps -a -q)"
+                sh "docker stop '\$(docker ps -a -q)'"
                 sh "docker system prune -a -f"
                 sh "docker-compose up"
             }
